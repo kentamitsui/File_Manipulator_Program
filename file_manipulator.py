@@ -65,7 +65,7 @@ def main():
         newstring = sys.argv[4]
         replace_string(input_path, needle, newstring)
     else:
-        print("Invalid command or number of arguments.")
+        print("コマンド、または引数の数が無効です。")
 
 if __name__ == "__main__":
     main()
