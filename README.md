@@ -17,4 +17,4 @@ inputpath.txtの内容を指定回数分コピーし、同ファイルに上書�
 inputpath.txtの内容にある[needle]という文字列を、[newstring]に変換し
 同ファイルに上書きする
 
-Replacing Strings: python3 file_manipulator.py replace-string inputpath.txt needle newstring
+## Replacing Strings: python3 file_manipulator.py replace-string inputpath.txt needle newstring
