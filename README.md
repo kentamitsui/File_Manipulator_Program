@@ -18,3 +18,5 @@ inputpath.txtの内容にある[needle]という文字列を、[newstring]に変
 同ファイルに上書きする
 
 ### python3 file_manipulator.py replace-string inputpath.txt needle newstring
+
+テスト
