@@ -106,17 +106,24 @@ def replace_string(input_path, needle, newstring):
         print(f"{input_path}が存在していないので、先に入力先ファイルを作成します。")
         create_file(input_path)
         return
+    
     with open(input_path, "r") as file_input:
         content = file_input.read()
-    with open(input_path, "w") as file_output:
-        file_output.write(content.replace(needle, newstring))
-    sys.stdout.write(f"{input_path}内の全ての[needle]という文字列を\n" +
-                     "[newstring]に置き換え・上書きを行いました。")
+    # 変換対象の文字列が存在しない場合のメッセージ出力
+    if needle not in content:
+        sys.stdout.write(f"変換対象の文字列[{needle}]が存在していません。\n")
+        sys.stdout.flush()
+    else:
+        with open(input_path, "w") as file_output:
+            file_output.write(content.replace(needle, newstring))
+        sys.stdout.write(f"{input_path}内の全ての[{needle}]という文字列を\n" +
+                        f"[{newstring}]に置き換え・上書きを行いました。")
+        sys.stdout.flush()
     pass
 
 def main():
     if len(sys.argv) < 3:
-        print("下記のコマンドを、ターミナル上で入力して下さい。\n" +
+        print("先程入力したコマンドに間違いが無いか、下記のサンプルコマンドを参考に、再度ターミナル上で入力して下さい。\n" +
               "また、ディレクトリがきちんと実行ファイル上に移動しているか、確認をして下さい。\n" +
               "python3 file_manipulator.py <operation> <inputpath> [<outputpath>/n/<needle> <newstring>]")
         return
